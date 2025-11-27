@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Blockchain Property Management</title>
+  <link rel="icon" type="image/x-icon" href="Favicon.png" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Blockchain Property Management System</h1>
+
+    <!-- User identity / secret -->
+    <div class="card">
+      <h2>User Identity</h2>
+      <p class="hint">
+        Enter your secret key. It is used to sign each action so we can verify who made it.
+      </p>
+      <div class="input-row">
+        <input type="text" id="ownerSecret" placeholder="Owner Secret (Private Key)" />
+      </div>
+    </div>
+
+    <!-- Register -->
+    <div class="card">
+      <h2>Register Property</h2>
+      <div class="input-row">
+        <input type="text" id="propertyID" placeholder="Property ID" />
+        <input type="text" id="propertyDesc" placeholder="Description" />
+        <input type="text" id="amountCAD" placeholder="Amount (CAD)" />
+        <input type="text" id="ownerName" placeholder="Owner Name" />
+        <button id="registerProperty">Register</button>
+      </div>
+    </div>
+
+    <!-- Transfer -->
+    <div class="card">
+      <h2>Transfer Ownership</h2>
+      <div class="input-row">
+        <input type="text" id="transferPropertyID" placeholder="Property ID" />
+        <input type="text" id="newOwnerName" placeholder="New Owner Name" />
+        <input type="text" id="transferAmountCAD" placeholder="Amount (CAD)" />
+        <input type="text" id="transferRemarks" placeholder="Remarks" />
+        <button id="transferProperty">Transfer</button>
+      </div>
+    </div>
+
+    <!-- Timeline -->
+    <div class="card">
+      <h2>Property Timeline</h2>
+      <div class="input-row">
+        <input type="text" id="timelinePropertyID" placeholder="Property ID" />
+        <button id="showTimeline">Show Timeline</button>
+      </div>
+      <ul id="propertyTimeline"></ul>
+    </div>
+
+    <!-- Stats & data -->
+    <div class="card">
+      <h2>Statistics & Data</h2>
+      <div class="stats-row">
+        <div class="stat-box">
+          <div class="stat-label">Total Properties</div>
+          <div class="stat-value" id="statTotalProperties">0</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">Total Transfers</div>
+          <div class="stat-value" id="statTotalTransfers">0</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">Unique Owners</div>
+          <div class="stat-value" id="statUniqueOwners">0</div>
+        </div>
+      </div>
+      <div class="input-row">
+        <button id="downloadLedger">Download Ledger (JSON)</button>
+        <input type="file" id="uploadLedger" accept=".json" />
+      </div>
+    </div>
+
+    <!-- Ledger -->
+    <div class="card">
+      <h2>Property Ledger</h2>
+      <div class="input-row">
+        <button id="validateChain">Validate Chain</button>
+        <span id="validationResult" class="validation-result"></span>
+      </div>
+      <ul id="propertyLedger"></ul>
+    </div>
+  </div>
+
+  <script src="js/jquery.slim.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
